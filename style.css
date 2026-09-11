@@ -1,0 +1,207 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f5f5f5; }
+
+    /* ── HEADER ── */
+    .header {
+      background: #C62828;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header h1 { color: white; font-size: 22px; cursor: pointer; }
+    .header button {
+      background: white; color: #C62828;
+      border: none; padding: 8px 16px;
+      border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold;
+    }
+
+    /* PAGES */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* HOME PAGE*/
+    .search-section {
+      background: #C62828;
+      padding: 0 24px 24px; text-align: center;
+    }
+    .search-section input {
+      width: 100%; max-width: 500px;
+      padding: 12px 16px; border-radius: 8px;
+      border: none; font-size: 15px;
+    }
+    .filters {
+      display: flex; gap: 10px;
+      padding: 16px 24px;
+      background: white; border-bottom: 1px solid #eee;
+      flex-wrap: wrap;
+    }
+    .filters button {
+      padding: 8px 20px; border-radius: 20px;
+      border: 1px solid #C62828;
+      background: white; color: #C62828;
+      cursor: pointer; font-size: 14px;
+    }
+    .filters button.active { background: #C62828; color: white; }
+    .banner {
+      margin: 16px 24px;
+      background: white; border-left: 4px solid #C62828;
+      padding: 12px 16px; border-radius: 6px;
+    }
+    .banner h3 { color: #C62828; font-size: 16px; }
+    .banner p  { color: #666; font-size: 13px; margin-top: 2px; }
+    .section-title {
+      font-size: 18px; font-weight: bold;
+      color: #333; padding: 0 24px; margin-bottom: 16px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px; padding: 0 24px 40px;
+    }
+    .card {
+      background: white; border-radius: 10px;
+      overflow: hidden; border: 1px solid #eee;
+      cursor: pointer; transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.10); }
+    .card-img {
+      background: #fce4e4; height: 150px;
+      display: flex; align-items: center;
+      justify-content: center; color: #C62828; font-size: 14px;
+      position: relative;
+    }
+    .verified-badge {
+      position: absolute; top: 8px; right: 8px;
+      background: #2E7D32; color: white;
+      font-size: 11px; padding: 3px 8px; border-radius: 10px;
+    }
+    .card-body { padding: 14px; }
+    .card-body h3 { font-size: 15px; color: #333; margin-bottom: 4px; }
+    .price { font-size: 18px; font-weight: bold; color: #C62828; margin-bottom: 4px; }
+    .distance { font-size: 13px; color: #888; margin-bottom: 10px; }
+    .tags { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+    .tag {
+      background: #fce4e4; color: #C62828;
+      font-size: 11px; padding: 3px 8px; border-radius: 10px;
+    }
+    .card-btn {
+      width: 100%; background: #C62828; color: white;
+      border: none; padding: 10px; border-radius: 6px;
+      cursor: pointer; font-size: 14px;
+    }
+    .card-btn:hover { background: #a52020; }
+    .no-rooms {
+      text-align: center; color: #888;
+      padding: 40px; font-size: 16px; grid-column: 1/-1;
+    }
+
+    /* DETAIL PAGE */
+    .detail-header {
+      background: #C62828; color: white;
+      padding: 14px 24px; display: flex;
+      align-items: center; gap: 12px;
+    }
+    .back-btn {
+      background: none; border: none;
+      color: white; font-size: 22px; cursor: pointer;
+    }
+    .detail-img {
+      background: #fce4e4; height: 220px;
+      display: flex; align-items: center;
+      justify-content: center; color: #C62828; font-size: 16px;
+    }
+    .detail-body { padding: 20px 24px; }
+    .detail-price { font-size: 24px; font-weight: bold; color: #C62828; }
+    .detail-sub { color: #888; font-size: 14px; margin: 4px 0 16px; }
+    .detail-section { font-size: 16px; font-weight: bold; color: #333; margin: 16px 0 10px; }
+    .amenity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+    .amenity-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; color: #555;
+    }
+    .amenity-dot { width: 8px; height: 8px; border-radius: 50%; background: #C62828; flex-shrink: 0; }
+    .map-box {
+      background: #e8f5e9; border: 1px solid #ccc;
+      border-radius: 8px; height: 120px;
+      display: flex; align-items: center;
+      justify-content: center; color: #555;
+      font-size: 14px; margin-bottom: 16px;
+    }
+    .contact-btn {
+      width: 100%; background: #C62828; color: white;
+      border: none; padding: 14px; border-radius: 8px;
+      font-size: 16px; font-weight: bold; cursor: pointer;
+    }
+    .contact-btn:hover { background: #a52020; }
+
+    /* ADD ROOM PAGE*/
+    .form-wrap { max-width: 600px; margin: 0 auto; padding: 24px; }
+    .form-title { font-size: 22px; font-weight: bold; color: #333; margin-bottom: 20px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 14px; font-weight: bold; color: #555; margin-bottom: 6px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 10px 14px;
+      border: 1px solid #ddd; border-radius: 8px;
+      font-size: 14px; color: #333;
+    }
+    .form-group textarea { height: 100px; resize: vertical; }
+    .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .checkbox-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #444; }
+    .submit-btn {
+      width: 100%; background: #C62828; color: white;
+      border: none; padding: 14px; border-radius: 8px;
+      font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 8px;
+    }
+    .submit-btn:hover { background: #a52020; }
+
+    /* MODAL (Contact popup) */
+    .modal-overlay {
+      display: none; position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5); z-index: 999;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white; border-radius: 12px;
+      padding: 28px; max-width: 380px; width: 90%;
+    }
+    .modal h2 { font-size: 18px; color: #333; margin-bottom: 6px; }
+    .modal p  { font-size: 14px; color: #666; margin-bottom: 16px; }
+    .owner-card {
+      background: #fce4e4; border-radius: 8px;
+      padding: 14px; display: flex;
+      align-items: center; gap: 14px; margin-bottom: 16px;
+    }
+    .owner-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: #C62828; color: white;
+      display: flex; align-items: center;
+      justify-content: center; font-size: 18px; font-weight: bold;
+    }
+    .owner-name { font-size: 16px; font-weight: bold; color: #333; }
+    .owner-phone { font-size: 14px; color: #666; }
+    .call-btn {
+      width: 100%; background: #C62828; color: white;
+      border: none; padding: 12px; border-radius: 8px;
+      font-size: 15px; font-weight: bold; cursor: pointer; margin-bottom: 10px;
+    }
+    .close-btn {
+      width: 100%; background: white; color: #C62828;
+      border: 1px solid #C62828; padding: 10px; border-radius: 8px;
+      font-size: 14px; cursor: pointer;
+    }
+
+    /* SUCCESS TOAST*/
+    .toast {
+      display: none; position: fixed;
+      bottom: 30px; left: 50%; transform: translateX(-50%);
+      background: #2E7D32; color: white;
+      padding: 12px 24px; border-radius: 8px;
+      font-size: 14px; z-index: 9999;
+    }
+    .toast.show { display: block; }

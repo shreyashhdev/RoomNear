@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoomNear</title>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- ── HEADER ── -->
+<div class="header">
+<h1 onclick="showPage('home')">RoomNear</h1>
+<button onclick="showPage('add')">+ List Your Room</button>
+</div>
+<!--PAGE 1: HOME-->
+<div class="page active" id="page-home">
+<div class="search-section">
+<input id="search-input" oninput="filterRooms()" placeholder="Search near your college..." type="text"/>
+</div>
+<div class="filters">
+<button class="active" onclick="setFilter('All', this)">All</button>
+<button onclick="setFilter('Boys', this)">Boys</button>
+<button onclick="setFilter('Girls', this)">Girls</button>
+<button onclick="setFilter('PG', this)">PG</button>
+<button onclick="setFilter('Flat', this)">Flat</button>
+</div>
+<div class="banner">
+<h3>0% Brokerage</h3>
+<p>Find rooms directly from owners. No agents. No extra charges.</p>
+</div>
+<div class="section-title">Nearby Rooms</div>
+<div class="cards" id="room-list"></div>
+</div>
+<!--PAGE 2: ROOM DETAIL-->
+<div class="page" id="page-detail">
+<div class="detail-header">
+<button class="back-btn" onclick="showPage('home')">←</button>
+<span id="detail-title" style="font-size:16px; font-weight:bold;">Room Detail</span>
+</div>
+<div class="detail-img">Room Photo</div>
+<div class="detail-body">
+<div class="detail-price" id="detail-price"></div>
+<div class="detail-sub" id="detail-sub"></div>
+<div class="detail-section">About this Room</div>
+<div class="amenity-grid" id="detail-amenities"></div>
+<div class="map-box">📍 Location on Map — Near College</div>
+<button class="contact-btn" onclick="openModal()">Contact Owner</button>
+</div>
+</div>
+<!--PAGE 3: ADD ROOM-->
+<div class="page" id="page-add">
+<div class="form-wrap">
+<div class="form-title">List Your Room</div>
+<div class="form-group">
+<label>Room Title</label>
+<input id="f-title" placeholder="e.g. Single room near ABC College" type="text"/>
+</div>
+<div class="form-group">
+<label>Rent Per Month (Rs.)</label>
+<input id="f-price" placeholder="e.g. 5000" type="number"/>
+</div>
+<div class="form-group">
+<label>Distance from College (km)</label>
+<input id="f-dist" placeholder="e.g. 0.8" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label>Room Type</label>
+<select id="f-type">
+<option value="Boys">Boys</option>
+<option value="Girls">Girls</option>
+<option value="PG">PG</option>
+<option value="Flat">Flat</option>
+</select>
+</div>
+<div class="form-group">
+<label>Owner Name</label>
+<input id="f-owner" placeholder="Your full name" type="text"/>
+</div>
+<div class="form-group">
+<label>Phone Number</label>
+<input id="f-phone" placeholder="e.g. 9876543210" type="tel"/>
+</div>
+<div class="form-group">
+<label>Amenities</label>
+<div class="checkbox-group">
+<label class="checkbox-item"><input type="checkbox" value="WiFi"/> WiFi</label>
+<label class="checkbox-item"><input type="checkbox" value="AC"/> Air Conditioning</label>
+<label class="checkbox-item"><input type="checkbox" value="Meals"/> Meals</label>
+<label class="checkbox-item"><input type="checkbox" value="Attached Bath"/> Attached Bath</label>
+<label class="checkbox-item"><input type="checkbox" value="24/7 Water"/> 24/7 Water</label>
+<label class="checkbox-item"><input type="checkbox" value="Parking"/> Parking</label>
+</div>
+</div>
+<div class="form-group">
+<label>Description</label>
+<textarea id="f-desc" placeholder="Describe your room..."></textarea>
+</div>
+<button class="submit-btn" onclick="submitRoom()">Post Listing</button>
+</div>
+</div>
+<!--CONTACT MODAL-->
+<div class="modal-overlay" id="modal">
+<div class="modal">
+<h2>Contact Owner</h2>
+<p>Room details confirmed. Connect directly!</p>
+<div class="owner-card">
+<div class="owner-avatar" id="modal-avatar">R</div>
+<div>
+<div class="owner-name" id="modal-name">Rahul Sharma</div>
+<div class="owner-phone" id="modal-phone">+91 98765 43210</div>
+</div>
+</div>
+<button class="call-btn" onclick="alert('Calling owner...')">📞 Call Owner</button>
+<button class="close-btn" onclick="closeModal()">Close</button>
+</div>
+</div>
+
+<div class="toast" id="toast">Room listed successfully!</div>
+<script src="script.js"></script>
+</body>
+</html>
